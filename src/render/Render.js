@@ -4,7 +4,7 @@ import machine from './Machine.js'
 
 //RENDERER
 const render = new THREE.WebGLRenderer({ canvas: document.getElementById('c'), antialias: true });
-render.setClearColor(0xaaaaff);
+render.setClearColor(0x29487d);
 render.setPixelRatio(window.devicePixelRatio);
 render.setSize(window.innerWidth, window.innerHeight);
 
