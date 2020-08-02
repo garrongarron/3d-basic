@@ -2,6 +2,7 @@ import machine from './Machine.js'
 import { lookAt } from './Camera.js'
 import db from './Database.js'
 import behaviourCamera from './BehaviourCamera.js'
+import monitor from './Monitor.js'
 
 let down = (e) => {
     if (e.keyCode == 38 && !behaviourHormiga.keys[e.keyCode]) {
@@ -36,10 +37,15 @@ class BehaviourHormiga {
                 this.back()
             }
             behaviourCamera.setHormiga(this.mesh)
+            this.monitor.style.left = (-this.mesh.position.x/100)+50+'%'
+            this.monitor.style.top = (-this.mesh.position.z/100)+50+'%'
         }
         this.speed = .5
     }
     setMesh(gltf) {
+        this.monitor = document.createElement('div')
+        this.monitor.classList.add('userPoint','yellow')
+        monitor.addPoint(this.monitor)
         this.mesh = gltf.scene
         document.addEventListener('keydown', down)
         document.addEventListener('keyup', up)
@@ -47,7 +53,7 @@ class BehaviourHormiga {
         
     }
     modify(gltf){
-        gltf.scene.position.set(0, 1, -1000)
+        gltf.scene.position.set(0, 1, 0)
         gltf.scene.scale.set(20, 20, 20)
         setInterval(() => {
             db.setItem(location.search, {

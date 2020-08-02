@@ -1,0 +1,19 @@
+.monitor{
+    width: 200px;
+    height: 200px;
+    z-index: 10;
+    position: fixed;
+    top: 1em;
+    right: 1em;
+    border: 2px solid red;
+}
+.userPoint{
+    border: 50%;
+    width: 4px;
+    height: 4px;
+    background-color: blueviolet;
+    position: absolute;
+}
+.yellow{
+    background-color: yellow !important;
+}

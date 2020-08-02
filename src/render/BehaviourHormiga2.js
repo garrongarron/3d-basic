@@ -1,6 +1,7 @@
 import machine from './Machine.js'
 import { lookAt } from './Camera.js'
 import db from './Database.js'
+import monitor from './Monitor.js'
 
 // let down = (e) => {
 //     if (e.keyCode == 38 && !behaviourHormiga.keys[e.keyCode]) {
@@ -43,10 +44,15 @@ class BehaviourHormiga {
             if (this.keys[40]) {
                 this.back()
             }
+            this.monitor.style.left = (-this.mesh.position.x/100)+50+'%'
+            this.monitor.style.top = (-this.mesh.position.z/100)+50+'%'
         }
         this.speed = .5
     }
     setMesh(gltf, id) {
+        this.monitor = document.createElement('div')
+        this.monitor.classList.add('userPoint')
+        monitor.addPoint(this.monitor)
         this.mesh = gltf.scene
         // document.addEventListener('keydown', down)
         // document.addEventListener('keyup', up)
@@ -66,7 +72,7 @@ class BehaviourHormiga {
         }, 200);
     }
     modify(gltf){
-        gltf.scene.position.set(0, 1, -1000)
+        gltf.scene.position.set(0, 1, 0)
         gltf.scene.scale.set(20, 20, 20)
         let mixer = new THREE.AnimationMixer(gltf.scene)
         this.setModifier(gltf, mixer)
