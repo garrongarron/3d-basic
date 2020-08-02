@@ -25,6 +25,7 @@
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/110/three.js"></script>
 <script src="https://www.briankoponen.com/js/loaders/GLTFLoader.js"></script>
+<script src="src/render/Render.js" type="module"></script>
 <script>
 
 /***************************************************************************************************    
@@ -32,165 +33,9 @@
 TUTORIAL https://tympanus.net/codrops/2019/10/14/how-to-create-an-interactive-3d-character-with-three-js/
 ***************************************************************************************************
 ***************************************************************************************************/
-    //RENDERER
-    var renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('c'), antialias: true });
-    renderer.setClearColor(0xaaaaff);
-    renderer.setPixelRatio(window.devicePixelRatio);
-    renderer.setSize(window.innerWidth, window.innerHeight);
-
-    //CAMERA
-    var camera = new THREE.PerspectiveCamera(35, window.innerWidth / window.innerHeight, 0.1, 3000);
-    // var camera = new THREE.OrthographicCamera(window.innerWidth / -2, window.innerWidth / 2, window.innerHeight / 2, window.innerHeight / -2, 0.1, 3000);
-    camera.position.set(-100, 55, -600)
-
-    //SCENE
-    var scene = new THREE.Scene();
-
-    //LIGHTS
-    var light = new THREE.AmbientLight(0xffffff, 0.5);
-    scene.add(light);
-
-    var light1 = new THREE.PointLight(0xffffff, 0.5);
-    scene.add(light1);
-
-    //OBJECT
-    var geometry = new THREE.CubeGeometry(10, 10, 10);
-    var material = new THREE.MeshLambertMaterial({ color: 0xF3FFE2 });
-    var mesh = new THREE.Mesh(geometry, material);
-    mesh.position.set(0, 10, -1000);
-    scene.add(mesh);
-
-    //OBJECT
-    var geometry3 = new THREE.CubeGeometry(10, 10, 10);
-    var material3 = new THREE.MeshLambertMaterial({ color: 0xF3FFE2 });
-    var mesh3 = new THREE.Mesh(geometry3, material3);
-    mesh3.position.set(0, 30, -1000);
-    scene.add(mesh3);
 
 
 
-
-
-
-
-    //OBJECT 2
-    var geometry2 = new THREE.BoxGeometry(10000, 1, 10000, 20, 20);;
-    // var material2 = new THREE.MeshLambertMaterial({color: 0xF3FFE2});
-    var texture = new THREE.TextureLoader().load('./img.png');
-    texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
-    texture.repeat.set(10, 10);
-    var material2 = new THREE.MeshBasicMaterial({ map: texture });
-    // var material2 = new THREE.MeshBasicMaterial( {color: 0x00ff00} );
-
-    var mesh2 = new THREE.Mesh(geometry2, material2);
-    mesh2.position.set(0, 0, -1000);
-
-    scene.add(mesh2);
-
-
-
-    var action= null;
-    var mixer = null;
-    var clock = new THREE.Clock();
-    var loader = new THREE.GLTFLoader();
-    let body = null;
-    loader.load('woman3.gltf', function (gltf) {
-        body = gltf.scene
-        scene.add(body);
-        body.position.set(0, 50, -1000)
-        body.scale.set(20, 20, 20)
-        mixer = new THREE.AnimationMixer(body);
-
-        let clip = gltf.animations[1]
-        action = mixer.clipAction(clip);
-        action.play();
-
-
-
-        let clip0 = gltf.animations[0]
-        action0 = mixer.clipAction(clip0);
-        // action0.play();
-        
-        
-
-
-
-        let animations = null;
-        animations = gltf.animations;
-        function playModifierAnimation(animation1,/*fSpeed, */ animation2 /*,tSpeed*/) {
-            let time = 0.90
-            animation2.setLoop(THREE.LoopOnce);
-            animation2.reset();
-            animation2.play();
-            animation1.crossFadeTo(animation2, time /*fSpeed*/, true);
-            // setTimeout(function () {
-            //     animation1.enabled = true;
-            //     animation2.crossFadeTo(animation1,time*2/*tSpeed*/, true);
-            //     currentlyAnimating = false;
-            // }, animation2._clip.duration * 1000 - ((time*2/*tSpeed*/ + time /*fSpeed*/) * 1000));
-        }
-
-
-        // Stop after a second
-        setTimeout(()=>{
-            console.log('change')
-            // playModifierAnimation(action,action0);
-            // action0.setLoop(THREE.LoopOnce);
-            action0.reset();
-            action0.play();
-            action.crossFadeTo(action0, gltf.animations[1].duration, true)
-            // setTimeout(()=>{action0.pause();},gltf.animations[1].duration*1000)
-        },1000)
-
-        // Re start after 2 seconds
-        setTimeout(()=>{
-            console.log('change')
-            // playModifierAnimation(action,action0);
-            // action0.setLoop(THREE.LoopOnce);
-            action.reset();
-            action.play();
-            action0.crossFadeTo(action, 1, true)
-            // setTimeout(()=>{action0.pause();},gltf.animations[1].duration*1000)
-        },3000)
-
-
-        console.log(gltf)
-    }, undefined, function (error) {
-        console.error(error);
-    });
-
-
-
-
-
-
-    
-
-
-
-
-    let x = 1;
-    //RENDER LOOP
-    requestAnimationFrame(render);
-
-    function render() {
-        if(action != null){
-            mixer.update( clock.getDelta() );
-            camera.lookAt(body.position);
-        }
-        
-        mesh.rotation.x += 0.01;
-        mesh.rotation.y += 0.01;
-        // camera.position.y +=1
-        if (Math.abs(camera.position.z) > 300) {
-            // x = -1 * x;
-        }
-        // console.log(Math.abs(camera.position.z))
-        camera.position.z -= 1 * x;
-        
-        renderer.render(scene, camera);
-        requestAnimationFrame(render);
-    }
 </script>
 
 </html>
