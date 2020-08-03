@@ -40,7 +40,7 @@ class BehaviourHormiga {
             this.monitor.style.left = (-this.mesh.position.x/100)+50+'%'
             this.monitor.style.top = (-this.mesh.position.z/100)+50+'%'
         }
-        this.speed = 5
+        this.speed = .5
     }
     setMesh(gltf) {
         this.monitor = document.createElement('div')

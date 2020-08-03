@@ -21,16 +21,16 @@ scene.add(light2);
 hormigaSetUp(scene)
 
 
-const loader = new THREE.GLTFLoader();
-loader.load('cube.gltf', function (gltf) {
-    scene.add(gltf.scene);
-    gltf.scene.position.set(0, 30, 100)
-    gltf.scene.scale.set(5,5,5)
-    console.log(gltf.scene);
+// const loader = new THREE.GLTFLoader();
+// loader.load('cube.gltf', function (gltf) {
+//     scene.add(gltf.scene);
+//     gltf.scene.position.set(0, 30, 100)
+//     gltf.scene.scale.set(5,5,5)
+//     console.log(gltf.scene);
     
-}, undefined, function (error) {
-    console.log(error);
-});
+// }, undefined, function (error) {
+//     console.log(error);
+// });
 
 
 
