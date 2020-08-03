@@ -27,7 +27,7 @@ class BehaviourCamera {
             if(this.hormiga){
                 this.mesh.position.x = this.hormiga.position.x
                 this.mesh.position.z = this.hormiga.position.z
-                console.log(this.mesh.rotation.y = this.hormiga.rotation._y - Math.PI);
+                this.mesh.rotation.y = this.hormiga.rotation._y - Math.PI;
                 
             }
             

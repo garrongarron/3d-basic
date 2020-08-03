@@ -1,6 +1,5 @@
-import BehaviourHormiga from './BehaviourHormiga2.js';
-
-
+import nameSetUp from './NameText.js'
+import BehaviourHormiga from './BehaviourHormiga2.js'
 
 let hormigaSetUp = (scene, id) => {
     const loader = new THREE.GLTFLoader();
@@ -15,6 +14,7 @@ let hormigaSetUp = (scene, id) => {
         scene.add(gltf.scene);
         const behaviourHormiga = new BehaviourHormiga()
         behaviourHormiga.setMesh(gltf, id)
+        nameSetUp(scene, id, behaviourHormiga)
     }).catch(e => console.error(e))
 }
 export default hormigaSetUp

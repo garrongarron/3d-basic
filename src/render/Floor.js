@@ -8,6 +8,15 @@ const material2 = new THREE.MeshBasicMaterial({ map: texture });
 // const material2 = new THREE.MeshBasicMaterial( {color: 0x00ff00} );
 
 const mesh = new THREE.Mesh(geometry2, material2);
+
+
+
+
+var ground = new THREE.Mesh(new THREE.BoxGeometry(100, 1, 100), new THREE.MeshLambertMaterial())
+ground.receiveShadow = true;
+
 mesh.position.set(0, 0, 0);
+mesh.receiveShadow = true;
+
 
 export default mesh

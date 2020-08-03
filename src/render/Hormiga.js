@@ -1,6 +1,7 @@
 import behaviourHormiga from './BehaviourHormiga.js';
 
-const loader = new THREE.GLTFLoader();
+
+const loader = new THREE.GLTFLoader(); 
 const promesaHormiga = new Promise((resolve, reject) => {
     loader.load('woman3.gltf', function (gltf) {
         resolve(gltf)
@@ -12,6 +13,8 @@ const promesaHormiga = new Promise((resolve, reject) => {
 let hormigaSetUp = (scene) => {
     promesaHormiga.then(gltf => {
         scene.add(gltf.scene);
+        
+        
         behaviourHormiga.setMesh(gltf)
     }).catch(e => console.error(e))
 }
