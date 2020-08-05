@@ -32,7 +32,17 @@ document.querySelector('button').addEventListener('click', () => {
             document.querySelector('.detalles').innerText = 'Has ganado la partida'
         }
         if(time<0){
-            alert('game over')
+            alert('La princesa a sido capturada por los alienigenas')
+            alert('Por si no lo sabias, ella esta escondida esperando por ti para ser rescatada')
+            alert('Tambien debes encontrar el arbol para que la princesa coma de sus frutos.')
+            let answer = confirm('Has perdido. Jajaja. Quieres voler a empezar?')
+            if(answer){
+                location.reload();
+            } else {
+                alert('Reiniciaremos el juego de todos modos! jajaja')
+                location.reload();
+            }
+            clearInterval(timer)
         }
         document.querySelector('.bar').style.width = time+'%'
     }, 500);

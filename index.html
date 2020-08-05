@@ -62,11 +62,12 @@
             -moz-animation: fadeIn ease 20s;
             -o-animation: fadeIn ease 20s;
             -ms-animation: fadeIn ease 20s;
+            height: 100%;
         }
         .bar{
             position: absolute;
             background-color: red;
-            height: .5em;
+            height: .25em;
             bottom: 0px;
             left: 0;
             width: 100%;
@@ -78,6 +79,11 @@
             position: absolute;
             top: 40vh;
         }
+        .creditos{
+            position: absolute;
+            top: 90vh;
+        }
+
 
         @keyframes fadeIn {
             0% {
@@ -135,6 +141,7 @@
 <body>
     <canvas id="c"></canvas>
     <div class="landing">
+        <div class="bar"></div>
         <h1>Invación alienígena</h1>
         <button>Comenzar</button>
         <table>
@@ -171,12 +178,13 @@
                 <td><a href="/?juan" target="_blank">Click</a></td>
             </tr>
         </table>
-        <div class="bar"></div>
+        
         <div class="mision">Encuentra a la princesa </div>
         <div class="detalles">Debes colocar a la princesa arriba de la nave espacial
             <br>
             y acercarte a un arbol para ganar la partida
         </div>
+        <div class="creditos">Diseño: Demonio al cubo<br>Programación: Garron Norrag</div>
     </div>
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/110/three.js"></script>
