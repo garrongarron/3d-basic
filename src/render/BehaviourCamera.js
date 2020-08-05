@@ -25,9 +25,14 @@ class BehaviourCamera {
             //     this.back()
             // }
             if(this.hormiga){
-                this.mesh.position.x = this.hormiga.position.x
-                this.mesh.position.z = this.hormiga.position.z
-                this.mesh.rotation.y = this.hormiga.rotation._y - Math.PI;
+                // this.mesh.position.x = this.hormiga.position.x
+                // this.mesh.position.z = this.hormiga.position.z
+
+                // this.mesh.rotation.y = this.hormiga.rotation._y - Math.PI;
+
+                this.mesh.position.x = this.hormiga.position.x - Math.sin(this.hormiga.rotation.y)*150
+                this.mesh.position.y = this.hormiga.position.y + 30
+                this.mesh.position.z = this.hormiga.position.z - Math.cos(this.hormiga.rotation.y)*150 
                 
             }
             

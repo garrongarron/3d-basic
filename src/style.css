@@ -17,3 +17,8 @@
 .yellow{
     background-color: yellow !important;
 }
+input{
+    position: fixed;
+    top: 0em;
+    left: 0em;
+}

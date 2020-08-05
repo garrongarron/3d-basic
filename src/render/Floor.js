@@ -12,7 +12,7 @@ const mesh = new THREE.Mesh(geometry2, material2);
 
 
 
-var ground = new THREE.Mesh(new THREE.BoxGeometry(100, 1, 100), new THREE.MeshLambertMaterial())
+var ground = new THREE.Mesh(new THREE.BoxGeometry(10000, 1, 10000), new THREE.MeshLambertMaterial())
 ground.receiveShadow = true;
 
 mesh.position.set(0, 0, 0);

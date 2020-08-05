@@ -11,6 +11,7 @@
             margin: 0;
             padding: 0;
             overflow: hidden;
+            color: white;
         }
 
         canvas {
@@ -30,13 +31,153 @@
         #css {
             /* background: black; */
         }
+
+        .landing {
+            position: fixed;
+            top: 0em;
+            left: 0em;
+            text-align: center;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        h1 {
+            display: block;
+            text-align: center;
+        }
+        button{
+            position: absolute;
+            top: 50vh;
+        }
+        table{
+            display: none;
+            position: fixed;
+            bottom: 0px;
+            left: 0px;
+        }
+        .landing {
+            animation: fadeIn ease 20s;
+            -webkit-animation: fadeIn ease 20s;
+            -moz-animation: fadeIn ease 20s;
+            -o-animation: fadeIn ease 20s;
+            -ms-animation: fadeIn ease 20s;
+        }
+        .bar{
+            position: absolute;
+            background-color: red;
+            height: .5em;
+            bottom: 0px;
+            left: 0;
+            width: 100%;
+        }
+        .mision{
+            position: absolute;
+        }
+        .detalles{
+            position: absolute;
+            top: 40vh;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @-moz-keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @-webkit-keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @-o-keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @-ms-keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
     </style>
     <link rel="stylesheet" href="src/style.css">
 </head>
 
 <body>
     <canvas id="c"></canvas>
-    <div id="css"></div>
+    <div class="landing">
+        <h1>Invación alienígena</h1>
+        <button>Comenzar</button>
+        <table>
+            <tr>
+                <td>↑</td>
+                <td>Adelante</td>
+            </tr>
+            <tr>
+                <td>↓</td>
+                <td>Atrás</td>
+            </tr>
+            <tr>
+                <td>→</td>
+                <td>Derecha</td>
+            </tr>
+            <tr>
+                <td>←</td>
+                <td>Izquierda</td>
+            </tr>
+            <tr>
+                <td>w</td>
+                <td>Arriba</td>
+            </tr>
+            <tr>
+                <td>s</td>
+                <td>Abajo</td>
+            </tr>
+            <tr>
+                <td>Espacio</td>
+                <td>Disparar</td>
+            </tr>
+            <tr>
+                <td>Otro Jugador</td>
+                <td><a href="/?juan" target="_blank">Click</a></td>
+            </tr>
+        </table>
+        <div class="bar"></div>
+        <div class="mision">Encuentra a la princesa </div>
+        <div class="detalles">Debes colocar a la princesa arriba de la nave espacial
+            <br>
+            y acercarte a un arbol para ganar la partida
+        </div>
+    </div>
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/110/three.js"></script>
 <script src="https://www.briankoponen.com/js/loaders/GLTFLoader.js"></script>

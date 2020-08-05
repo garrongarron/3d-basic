@@ -15,7 +15,7 @@ let hormigaSetUp = (scene) => {
         scene.add(gltf.scene);
         
         
-        behaviourHormiga.setMesh(gltf)
+        behaviourHormiga.setMesh(gltf, scene)
     }).catch(e => console.error(e))
 }
 export default hormigaSetUp

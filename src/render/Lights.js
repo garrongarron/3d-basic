@@ -8,8 +8,8 @@ const light2 = new THREE.PointLight(0xffffff, .55);
 light2.position.set(50, 150, 100);
 // light2.castShadow = true;
 // light2.shadowCameraVisible = true;
-const light3 = new THREE.PointLight(0xffffff, .5);
-light3.position.set(-50, 150, 50);
+const light3 = new THREE.PointLight(0xffffff, 2);
+light3.position.set(0, 20, 30);
 // light3.castShadow = true;
 // light3.shadowCameraVisible = true;
 
