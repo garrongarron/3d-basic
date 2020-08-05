@@ -32,9 +32,9 @@ document.querySelector('button').addEventListener('click', () => {
             document.querySelector('.detalles').innerText = 'Has ganado la partida'
         }
         if(time<0){
-            alert('Los alienigenas han capturado tu nave, y la princesa')
-            alert('Por si no lo sabias, ella esta escondida esperando por ti para ser rescatada')
-            alert('Tambien debes encontrar el arbol para que la princesa coma de sus frutos.')
+            alert('Los alienigenas han capturado tu nave, y a la princesa.')
+            alert('Por si no lo sabias, ella esta escondida esperando por ti para ser rescatada.')
+            alert('Tambien debes encontrar el árbol para que la princesa coma de sus frutos.')
             let answer = confirm('Has perdido. Jajaja. Quieres voler a empezar?')
             if(answer){
                 location.reload();
